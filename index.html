@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Optional: clean academic font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
@@ -27,9 +26,7 @@
         <a href="#demos">Demos</a>
       </nav>
 
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-        ☰
-      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
     </div>
 
     <div class="mobile-nav container" id="mobileNav">
@@ -55,12 +52,17 @@
         </div>
       </div>
 
-      <!-- Optional buttons (safe defaults are hidden unless you set links in JS) -->
       <div class="btn-row" id="btnRow">
         <a class="btn" id="btnPaper" href="#" target="_blank" rel="noreferrer">Paper</a>
         <a class="btn" id="btnCode" href="#" target="_blank" rel="noreferrer">Code</a>
         <a class="btn" id="btnDataset" href="#" target="_blank" rel="noreferrer">Dataset</a>
         <button class="btn btn-ghost" id="btnBibtex">BibTeX</button>
+      </div>
+
+      <div class="note">
+        <span class="pill">Unsupervised</span>
+        <span class="pill">HSV Red Hue</span>
+        <span class="pill">RFAV (NeRF / 3DGS)</span>
       </div>
     </section>
 
@@ -78,7 +80,9 @@
     <section id="figures" class="card">
       <div class="card-head">
         <h2>Figures</h2>
-        <div class="subhead">PDF figures are embedded below. Click “Open PDF” for full-screen viewing.</div>
+        <div class="subhead">
+          Figures are PDF. Use “Open PDF” for full-screen, or scroll inside the preview.
+        </div>
       </div>
 
       <div class="figure-grid">
@@ -91,8 +95,8 @@
             </div>
           </div>
 
-          <div class="pdf-frame">
-            <embed src="assets/fig/method.pdf" type="application/pdf" />
+          <div class="pdf-frame pdf-tall">
+            <iframe src="assets/fig/method.pdf#view=FitH" title="Method PDF"></iframe>
           </div>
 
           <div class="figure-caption">
@@ -110,8 +114,8 @@
             </div>
           </div>
 
-          <div class="pdf-frame">
-            <embed src="assets/fig/dataset.pdf" type="application/pdf" />
+          <div class="pdf-frame pdf-tall">
+            <iframe src="assets/fig/dataset.pdf#view=FitH" title="Dataset PDF"></iframe>
           </div>
 
           <div class="figure-caption">
@@ -127,30 +131,25 @@
       <div class="card-head">
         <h2>Demo Videos</h2>
         <div class="subhead">
-          ID1–ID5, each with 6 MP4 videos. Paths are expected as:
-          <code>assets/videos/IDx/1.mp4 ... 6.mp4</code>
+          Each row corresponds to one identity (ID1–ID5). 6 videos per ID.
         </div>
       </div>
 
-      <div class="tabs" id="tabs"></div>
-      <div class="video-grid" id="videoGrid"></div>
+      <div class="demo-list" id="demoList"></div>
 
       <div class="small-print">
-        Tip: for best browser compatibility, encode MP4 with H.264 (video) + AAC (audio).
+        To reduce load: videos use <code>preload="metadata"</code> and are muted by default.
+        For smaller files, encode MP4 with H.264 + AAC, and consider downscaling to 480p/720p.
       </div>
     </section>
 
     <footer class="footer">
-      <div class="footer-left">
-        © <span id="year"></span> RHTHFD Project Page
-      </div>
-      <div class="footer-right">
-        Hosted on GitHub Pages
-      </div>
+      <div class="footer-left">© <span id="year"></span> RHTHFD Project Page</div>
+      <div class="footer-right">Hosted on GitHub Pages</div>
     </footer>
   </main>
 
-  <!-- BibTeX modal (optional) -->
+  <!-- BibTeX modal -->
   <dialog class="modal" id="bibtexModal">
     <div class="modal-head">
       <div class="modal-title">BibTeX</div>
